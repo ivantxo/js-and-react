@@ -1,7 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function StopWatch() {
   const [isOn, setIsOn] = useState(false);
+
+  useEffect(() => {
+    console.log('effect runs');
+    const interval = setInterval(() => console.log('tick'), 1000);
+
+    return () => clearInterval(interval);
+  });
 
   return (
     <div>
