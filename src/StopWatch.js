@@ -17,6 +17,11 @@ function StopWatch() {
     return () => clearInterval(interval);
   }, [isOn, timer]);
 
+  const onReset = () => {
+    setIsOn(false);
+    setTimer(0);
+  };
+
   return (
     <div>
       { timer }&nbsp;&nbsp;
@@ -32,6 +37,11 @@ function StopWatch() {
           Stop
         </button>
       )}
+      
+      &nbsp;&nbsp;
+      <button type="button" disabled={ timer === 0 } onClick={onReset}>
+        Reset
+      </button>
     </div>
   );
 }
