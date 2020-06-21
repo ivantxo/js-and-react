@@ -4,8 +4,11 @@ function StopWatch() {
   const [isOn, setIsOn] = useState(false);
 
   useEffect(() => {
-    console.log('effect runs');
-    const interval = setInterval(() => console.log('tick'), 1000);
+    let interval;
+    if (isOn) {
+      console.log('effect runs');
+      interval = setInterval(() => console.log('tick'), 1000);
+    }
 
     return () => clearInterval(interval);
   }, [isOn]);
