@@ -13,6 +13,8 @@ import jstricks from './jstricks';
 import Props from './Props';
 // Promises
 import Promises from './Promises';
+// useState and useEffect
+import StopWatch from './StopWatch';
 
 
 function App() {
@@ -27,6 +29,7 @@ function App() {
         <li><NavLink to="/jstricks">JS Tricks</NavLink></li>
         <li><NavLink to="/props">Props</NavLink></li>
         <li><NavLink to="/promises">Promises</NavLink></li>
+        <li><NavLink to="/stopwatch">useState</NavLink></li>
       </ul>
       <div className="content">
         <Route path="/" />
@@ -36,6 +39,7 @@ function App() {
         <Route path="/jstricks" component={jstricks} />
         <Route path="/props" component={Props} />
         <Route path="/promises" component={Promises} />
+        <Route path="/stopwatch" component={StopWatch} />
       </div>
     </div>
   );
