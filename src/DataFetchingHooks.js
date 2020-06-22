@@ -4,17 +4,17 @@ import Axios from 'axios';
 function DataFetchingHooks() {
   const [data, setData] = useState({ hits: [] });
   const [query, setQuery] = useState('redux');
-  const [search, setSearch] = useState('');
+  const [url, setUrl] = useState(
+    'https://hn.algolia.com/api/v1/search?query=redux'
+  );
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await Axios(
-        `https://hn.algolia.com/api/v1/search?query=${search}`
-      );
+      const result = await Axios(url);
       setData(result.data);
     };
     fetchData();
-  }, [search]);
+  }, [url]);
 
   return (
     <Fragment>
@@ -23,7 +23,13 @@ function DataFetchingHooks() {
         value={ query }
         onChange={ event => setQuery(event.target.value) }
       />&nbsp;&nbsp;
-      <button type="button" onClick={() => setSearch(query) }>
+      <button 
+        type="button" 
+        onClick={() => 
+          setUrl(
+            `https://hn.algolia.com/api/v1/search?query=${query}`
+          )
+        }>
         Search
       </button>
       <ul>
