@@ -29,20 +29,18 @@ function DataFetchingHooks() {
 
   return (
     <Fragment>
-      <input 
-        type="text"
-        value={ query }
-        onChange={ event => setQuery(event.target.value) }
-      />&nbsp;&nbsp;
-      <button 
-        type="button" 
-        onClick={() => 
-          setUrl(
-            `https://hn.algolia.com/api/v1/search?query=${query}`
-          )
-        }>
-        Search
-      </button>
+      <form
+        onSubmit={event => {
+          setUrl(`https://hn.algolia.com/api/v1/search?query=${query}`);
+          event.preventDefault();
+        }}>
+        <input 
+          type="text"
+          value={ query }
+          onChange={ event => setQuery(event.target.value) }
+        />&nbsp;&nbsp;
+        <button type="submit">Search</button>
+      </form>
 
       {isError ? (
         <div><br />Something went postal...</div>
