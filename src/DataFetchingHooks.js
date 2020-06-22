@@ -7,11 +7,16 @@ function DataFetchingHooks() {
   const [url, setUrl] = useState(
     'https://hn.algolia.com/api/v1/search?query=redux'
   );
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
+      setIsLoading(true);
+
       const result = await Axios(url);
+
       setData(result.data);
+      setIsLoading(false);
     };
     fetchData();
   }, [url]);
@@ -32,13 +37,17 @@ function DataFetchingHooks() {
         }>
         Search
       </button>
-      <ul>
-        {data.hits.map(item => (
-          <li key={ item.objectID }>
-            <a href={ item.url }>{ item.title }</a>
-          </li>
-        ))}
-      </ul>
+      {isLoading ? (
+        <div>Loading...</div>
+      ) : (
+        <ul>
+          {data.hits.map(item => (
+            <li key={ item.objectID }>
+              <a href={ item.url }>{ item.title }</a>
+            </li>
+          ))}
+        </ul>
+      )}
     </Fragment>
   );
 }
