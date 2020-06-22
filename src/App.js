@@ -15,6 +15,8 @@ import Props from './Props';
 import Promises from './Promises';
 // useState and useEffect
 import StopWatch from './StopWatch';
+// Data fetching with hooks
+import DataFetchingHooks from './DataFetchingHooks';
 
 
 function App() {
@@ -30,6 +32,7 @@ function App() {
         <li><NavLink to="/props">Props</NavLink></li>
         <li><NavLink to="/promises">Promises</NavLink></li>
         <li><NavLink to="/stopwatch">useState</NavLink></li>
+        <li><NavLink to="/datafetch">Data Fetch 1</NavLink></li>
       </ul>
       <div className="content">
         <Route path="/" />
@@ -40,6 +43,7 @@ function App() {
         <Route path="/props" component={Props} />
         <Route path="/promises" component={Promises} />
         <Route path="/stopwatch" component={StopWatch} />
+        <Route path="/datafetch" component={DataFetchingHooks} />
       </div>
     </div>
   );
