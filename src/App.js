@@ -19,6 +19,8 @@ import StopWatch from './StopWatch';
 import DataFetchingHooks from './DataFetchingHooks';
 // Data fetching
 import DataFetching from './DataFetching';
+// Axios Fetch
+import AxiosFetch from './AxiosFetch';
 
 
 function App() {
@@ -36,6 +38,7 @@ function App() {
         <li><NavLink to="/stopwatch">useState</NavLink></li>
         <li><NavLink to="/datafetch">Data Fetch 1</NavLink></li>
         <li><NavLink to="/datafetching">Data Fetch</NavLink></li>
+        <li><NavLink to="/axiosfetch">Axios Fetch</NavLink></li>
       </ul>
       <div className="content">
         <Route path="/" />
@@ -48,6 +51,7 @@ function App() {
         <Route path="/stopwatch" component={StopWatch} />
         <Route path="/datafetch" component={DataFetchingHooks} />
         <Route path="/datafetching" component={DataFetching} />
+        <Route path="/axiosfetch" component={AxiosFetch} />
       </div>
     </div>
   );
