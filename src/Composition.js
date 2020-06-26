@@ -10,7 +10,7 @@ const UserNameForm = ({ onSubmit }) => {
   const [userName, setUserName] = useState('');
 
   return (
-    <form
+    <Form
       onSubmit={ event => {
         onSubmit(userName);
         event.preventDefault();
@@ -26,8 +26,12 @@ const UserNameForm = ({ onSubmit }) => {
       </label>
 
       <button type="submit">Send</button>
-    </form>
+    </Form>
   );
 };
+
+const Form = ({ onSubmit, children }) => (
+  <form onSubmit={ onSubmit }>{ children }</form>
+);
 
 export default Composition;
