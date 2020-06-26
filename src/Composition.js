@@ -19,13 +19,13 @@ const UserNameForm = ({ onSubmit }) => {
       }}
     >
       <InputField
-        value={ userName }
         onChange={ setUserName }
+        value={ userName }
       >
         Your name:&nbsp;&nbsp;
       </InputField>&nbsp;&nbsp;
 
-      <Button type="submit">Send</Button>
+      <Button color="violet" type="submit">Send</Button>
     </Form>
   );
 };
@@ -34,8 +34,17 @@ const Form = ({ onSubmit, children }) => (
   <form onSubmit={ onSubmit }>{ children }</form>
 );
 
-const Button = ({ onClick, type = 'button', children }) => (
-  <button type={ type } onClick={ onClick }>
+const Button = ({ 
+  color = 'white', 
+  onClick, 
+  type = 'button', 
+  children, 
+}) => (
+  <button 
+    style={{ backgroundColor: color}}
+    type={ type } 
+    onClick={ onClick }
+  >
     { children }
   </button>
 );
