@@ -21,6 +21,8 @@ import DataFetchingHooks from './DataFetchingHooks';
 import DataFetching from './DataFetching';
 // Axios Fetch
 import AxiosFetch from './AxiosFetch';
+// Composition
+import Composition from './Composition';
 
 
 function App() {
@@ -39,6 +41,7 @@ function App() {
         <li><NavLink to="/datafetch">Data Fetch 1</NavLink></li>
         <li><NavLink to="/datafetching">Data Fetch</NavLink></li>
         <li><NavLink to="/axiosfetch">Axios Fetch</NavLink></li>
+        <li><NavLink to="/composition">Composition</NavLink></li>
       </ul>
       <div className="content">
         <Route path="/" />
@@ -52,6 +55,7 @@ function App() {
         <Route path="/datafetch" component={DataFetchingHooks} />
         <Route path="/datafetching" component={DataFetching} />
         <Route path="/axiosfetch" component={AxiosFetch} />
+        <Route path="/composition" component={Composition} />
       </div>
     </div>
   );
