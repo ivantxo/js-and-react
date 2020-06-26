@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 
 const Composition = () => {
-  const onSubmit = userName => console.log(userName);
-
-  return <UserNameForm onSubmit={onSubmit} />
+  return (
+    <div>
+      <UserNameForm onSubmit={ userName => console.log(userName) } />
+    </div>
+  );
 };
 
 const UserNameForm = ({ onSubmit }) => {
