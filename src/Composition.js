@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 
 const Composition = () => {
   const onSubmit = userName => console.log(userName);
@@ -16,22 +16,37 @@ const UserNameForm = ({ onSubmit }) => {
         event.preventDefault();
       }}
     >
-      <label>
+      <InputField
+        value={ userName }
+        onChange={ setUserName }
+      >
         Your name:&nbsp;&nbsp;
-        <input
-          type="text"
-          value={ userName }
-          onChange={ event => setUserName(event.target.value) }
-        />&nbsp;&nbsp;
-      </label>
+      </InputField>&nbsp;&nbsp;
 
-      <button type="submit">Send</button>
+      <Button type="submit">Send</Button>
     </Form>
   );
 };
 
 const Form = ({ onSubmit, children }) => (
   <form onSubmit={ onSubmit }>{ children }</form>
+);
+
+const Button = ({ onClick, type = 'button', children }) => (
+  <button type={ type } onClick={ onClick }>
+    { children }
+  </button>
+);
+
+const InputField = ({ onChange, type = 'text', value, children }) => (
+  <label>
+    { children }
+    <input
+      type={ type }
+      value={ value }
+      onChange={ event => onChange(event.target.value) }
+    />
+  </label>
 );
 
 export default Composition;
